@@ -1,4 +1,4 @@
-module github.com/ngoldack/gloomsy
+module github.com/ngoldack/gloomsy/apps/cli
 
 go 1.21.3
 

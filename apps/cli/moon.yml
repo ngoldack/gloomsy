@@ -1,0 +1,6 @@
+type: application
+language: go
+
+tasks:
+  dev:
+    command: go run .

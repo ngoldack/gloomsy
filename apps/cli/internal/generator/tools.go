@@ -7,7 +7,7 @@ import (
 
 	"log/slog"
 
-	"github.com/ngoldack/gloomsy/pkg/tool"
+	"github.com/ngoldack/gloomsy/apps/cli/pkg/tool"
 )
 
 func (g *Generator) getTools(ctx context.Context) (map[string]string, error) {

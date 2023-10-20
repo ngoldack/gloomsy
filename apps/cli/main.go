@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/lmittmann/tint"
-	"github.com/ngoldack/gloomsy/cmd"
+	"github.com/ngoldack/gloomsy/apps/cli/cmd"
 )
 
 func main() {

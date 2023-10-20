@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/ngoldack/gloomsy/internal/generator"
+	"github.com/ngoldack/gloomsy/apps/cli/internal/generator"
 	"github.com/spf13/cobra"
 )
 
