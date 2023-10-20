@@ -15,10 +15,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Add go.work file
+        run: echo "go 1.21.3\n\nuse ./ci" > go.work
+
       - name: Setup go
         uses: actions/setup-go@v4
         with:
-          go-version: ">=1.21"
+          go-version-file: 'go.work'
 
       - name: Install Dagger CLI
         run: cd /usr/local && { curl -L https://dl.dagger.io/dagger/install.sh | sh; cd -; }
