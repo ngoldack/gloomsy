@@ -4,6 +4,7 @@ go 1.21.3
 
 require (
 	github.com/go-playground/validator/v10 v10.15.5
+	github.com/lmittmann/tint v1.0.2
 	github.com/spf13/cobra v1.7.0
 )
 

@@ -3,14 +3,20 @@ package generator
 import (
 	"context"
 	"log/slog"
-	"os/exec"
 )
 
 func (g *Generator) Run(ctx context.Context) error {
-	err := g.checkTools(ctx)
+	tools, err := g.getTools(ctx)
 	if err != nil {
 		return err
 	}
+	slog.Info("All required tools found", "tools", tools)
+
+	err = g.verifyToolVersions(ctx, tools)
+	if err != nil {
+		return err
+	}
+	slog.Info("All required tools have the correct version")
 
 	err = g.checkIfProjectExists(ctx)
 	if err != nil {
@@ -30,9 +36,17 @@ func (g *Generator) Run(ctx context.Context) error {
 	}
 
 	// init moon project
-	out, err := exec.CommandContext(ctx, "moon", "init", "--minimal", "--yes", g.projectName).CombinedOutput()
-	if err != nil {
-		slog.ErrorContext(ctx, "moon init failed", "err", err, "out", string(out))
+	if err = g.generateMoonProject(ctx); err != nil {
+		return err
+	}
+
+	// generate backend
+	if err = g.generateBackend(ctx); err != nil {
+		return err
+	}
+
+	// generate frontend
+	if err = g.generateFrontend(ctx); err != nil {
 		return err
 	}
 
