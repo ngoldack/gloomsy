@@ -1,0 +1,9 @@
+type: application
+language: typescript
+
+tasks:
+  dev:
+    command: pnpm run dev
+
+  build:
+    command: pnpm run build

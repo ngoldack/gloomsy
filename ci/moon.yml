@@ -1,0 +1,7 @@
+type: tool
+language: go
+platform: system
+
+tasks:
+  dev:
+    command: dagger run go run .

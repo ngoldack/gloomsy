@@ -4,3 +4,11 @@ language: go
 tasks:
   dev:
     command: go run .
+
+  mkdir:
+    command: mkdir -p build
+
+  test:
+    deps:
+      - mkdir
+    command: go test -v -race -coverprofile=build/coverage.txt -covermode=atomic ./...
