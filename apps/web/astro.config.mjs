@@ -1,7 +1,7 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
-import vercel from "@astrojs/vercel/static";
+import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 // https://docs.astro.build/reference/configuration
@@ -32,7 +32,7 @@ export default defineConfig({
       ],
     }),
   ],
-  output: "static",
+  output: "server",
   adapter: vercel({
     webAnalytics: {
       enabled: true,
